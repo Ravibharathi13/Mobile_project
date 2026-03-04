@@ -1,9 +1,10 @@
 import axios from "axios";
+import { mockProducts } from "./mockApi";
 
 // Create a single axios instance with base URL
 const API = axios.create({ 
   baseURL: "https://mobile-project-fizd.onrender.com/api",
-  timeout: 10000
+  timeout: 30000 // Increased to 30 seconds for Render spin-up
 });
 
 // Attach token automatically for every request if available
@@ -304,12 +305,26 @@ const cartAPI = {
   }
 };
 
+// Wake up the backend before making requests
+const wakeUpBackend = async () => {
+  try {
+    // Use a lightweight health check to wake up the backend
+    await API.get('/chatbot/health', { timeout: 5000 });
+  } catch (err) {
+    // Ignore errors, this is just to wake up the backend
+    console.log('Backend wake-up attempt:', err.message);
+  }
+};
+
 // Main API export object
 export const api = {
   // Products API methods
   getProducts: async (filters = {}) => {
     try {
       console.log('Fetching products with filters:', filters);
+      
+      // Wake up the backend first
+      await wakeUpBackend();
       
       const params = {};
       if (filters.category && filters.category !== "all") {
@@ -333,8 +348,14 @@ export const api = {
     } catch (err) {
       console.error("API error fetching products:", err);
       
-      if (err.code === 'ECONNREFUSED') {
-        throw new Error('Cannot connect to server. Make sure the backend is running on port 5000.');
+      if (err.code === 'ECONNABORTED' || err.message.includes('timeout')) {
+        console.warn('Backend timeout, falling back to mock data');
+        // Return mock data as fallback
+        return mockProducts;
+      } else if (err.code === 'ECONNREFUSED') {
+        console.warn('Backend connection refused, falling back to mock data');
+        // Return mock data as fallback
+        return mockProducts;
       } else if (err.response?.status === 404) {
         throw new Error('Products endpoint not found. Check your backend routes.');
       } else if (err.response?.status >= 500) {

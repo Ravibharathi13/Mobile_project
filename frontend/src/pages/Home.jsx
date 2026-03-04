@@ -15,14 +15,18 @@ import '../styles/home.css';
 import '../styles/features.css';
 import '../styles/categories.css';
 import '../styles/featured-products.css';
+import BackendLoading from '../components/BackendLoading';
 
 const Home = () => {
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const loadFeaturedProducts = async () => {
       try {
+        setLoading(true);
+        setError(null);
         const products = await api.getProducts();
 
         // Get top-rated products as featured
@@ -30,6 +34,7 @@ const Home = () => {
         setFeaturedProducts(featured);
       } catch (error) {
         console.error('Error loading featured products:', error);
+        setError(error.message);
       } finally {
         setLoading(false);
       }
@@ -184,8 +189,16 @@ const Home = () => {
           </div>
 
           {loading ? (
-            <div className="products-loading">
-              <div className="spinner"></div>
+            <BackendLoading message="Loading featured products..." />
+          ) : error ? (
+            <div className="text-center p-8">
+              <p className="text-red-600 mb-4">{error}</p>
+              <button 
+                onClick={() => window.location.reload()} 
+                className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+              >
+                Try Again
+              </button>
             </div>
           ) : (
             <div className="products-grid">
