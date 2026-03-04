@@ -202,7 +202,7 @@ router.put('/:id', protect, async (req, res) => {
 });
 
 // GET /api/reviews/user/reviewable-products - Get products user can review
-router.get('/user/reviewable-products', protect, async (req, res) => {
+router.get('/reviewable-products', protect, async (req, res) => {
   try {
     // Get delivered orders for the user
     const deliveredOrders = await Order.find({

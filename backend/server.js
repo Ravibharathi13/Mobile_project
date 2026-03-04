@@ -24,23 +24,16 @@ const allowedOrigins = [
   'http://localhost:3001', 
   'http://localhost:3002', 
   'http://localhost:5173',
-  'https://mobile-project-8pme9g5o0-ravibharathis-projects-9c949989.vercel.app',
-  // Add any additional frontend URLs from environment
-  ...(process.env.FRONTEND_URLS ? process.env.FRONTEND_URLS.split(',') : [])
+  'https://mobile-project-8pme9g5o0-ravibharathis-projects-9c949989.vercel.app'
 ];
 
+// Add additional origins from environment if available
+if (process.env.FRONTEND_URLS) {
+  allowedOrigins.push(...process.env.FRONTEND_URLS.split(','));
+}
+
 app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
-    
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      console.log('CORS blocked origin:', origin);
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: allowedOrigins,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
@@ -48,9 +41,6 @@ app.use(cors({
 
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
-
-// Handle pre-flight requests for all routes
-app.options('*', cors());
 
 // Import routes
 const authRoutes = require('./routes/auth');

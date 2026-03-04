@@ -474,7 +474,7 @@ export const api = {
 
   getUserStats: async () => {
     try {
-      const response = await API.get('/users/stats/overview');
+      const response = await API.get('/users/stats');
       // Handle the backend response format { success: true, data: stats }
       if (response.data.success && response.data.data) {
         return response.data.data;
@@ -667,7 +667,7 @@ export const api = {
 
   getReviewableProducts: async () => {
     try {
-      const response = await API.get('/reviews/user/reviewable-products');
+      const response = await API.get('/reviews/reviewable-products');
       return response.data.data || [];
     } catch (err) {
       console.error("API error fetching reviewable products:", err);

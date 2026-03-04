@@ -112,7 +112,7 @@ router.delete('/:id', protect, admin, async (req, res) => {
 });
 
 // Get user stats (admin only)
-router.get('/stats/overview', protect, admin, async (req, res) => {
+router.get('/stats', protect, admin, async (req, res) => {
   try {
     const totalUsers = await User.countDocuments();
     const adminUsers = await User.countDocuments({ role: 'admin' });
