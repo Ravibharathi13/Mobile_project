@@ -20,11 +20,7 @@ const PORT = process.env.PORT || 5000;
 
 // Rest of your server configuration...
 const allowedOrigins = [
-  'http://localhost:3000', 
-  'http://localhost:3001', 
-  'http://localhost:3002', 
-  'http://localhost:5173',
-  'https://mobile-project-8pme9g5o0-ravibharathis-projects-9c949989.vercel.app'
+  'https://mobile-project-three.vercel.app'
 ];
 
 // Add additional origins from environment if available

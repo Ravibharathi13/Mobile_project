@@ -19,7 +19,7 @@ npm run dev
 ```
 
 ### **2. Open Your Browser:**
-Go to `http://localhost:3000`
+Go to `https://mobile-project-three.vercel.app`
 
 ### **3. Look for the Chatbot:**
 You should now see **TWO** chatbot buttons:
@@ -59,7 +59,7 @@ You should now see **TWO** chatbot buttons:
 ## 🧪 **Quick Tests:**
 
 ### **Test 1: Check if Frontend is Running**
-- Go to `http://localhost:3000`
+- Go to `https://mobile-project-three.vercel.app`
 - You should see your e-commerce app
 - If you see a blank page or error, the frontend isn't running
 

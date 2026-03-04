@@ -37,7 +37,7 @@ The component is fully implemented and ready to use. No additional setup require
 ### 2. Access the Page
 Navigate to product details page via URL:
 ```
-http://localhost:3000/products/product-id-here
+https://mobile-project-three.vercel.app/products/product-id-here
 ```
 
 The component will automatically:

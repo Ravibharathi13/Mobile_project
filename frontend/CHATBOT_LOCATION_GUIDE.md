@@ -31,7 +31,7 @@ npm run dev
 ```
 
 ### **Step 2: Login to Your Account**
-1. Go to `http://localhost:3000`
+1. Go to `https://mobile-project-three.vercel.app`
 2. Click "Login" or "Register"
 3. Login with your credentials
 4. You should see the user dashboard or home page

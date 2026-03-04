@@ -3,7 +3,7 @@
 ## 🚀 CORS Issues Fixed
 
 ### Problem
-Your Vercel frontend (`https://mobile-project-8pme9g5o0-ravibharathis-projects-9c949989.vercel.app`) was being blocked by CORS policy because the backend only allowed localhost origins.
+Your Vercel frontend (`https://mobile-project-three.vercel.app`) was being blocked by CORS policy because the backend only allowed localhost origins.
 
 ### Solution Applied
 1. ✅ Added your Vercel domain to CORS allowed origins
@@ -26,7 +26,7 @@ const allowedOrigins = [
   'http://localhost:3001', 
   'http://localhost:3002', 
   'http://localhost:5173',
-  'https://mobile-project-8pme9g5o0-ravibharathis-projects-9c949989.vercel.app',
+  'https://mobile-project-three.vercel.app',
   ...(process.env.FRONTEND_URLS ? process.env.FRONTEND_URLS.split(',') : [])
 ];
 
@@ -56,7 +56,7 @@ Added `FRONTEND_URLS` to `.env.example` for easy management of multiple frontend
 ### 1. Update Render Environment Variables
 In your Render dashboard, add this environment variable:
 ```
-FRONTEND_URLS=https://mobile-project-8pme9g5o0-ravibharathis-projects-9c949989.vercel.app
+FRONTEND_URLS=https://mobile-project-three.vercel.app
 ```
 
 ### 2. Redeploy Backend
@@ -87,7 +87,7 @@ fetch('https://mobile-project-fizd.onrender.com/api/products')
 3. **Clear browser cache**: CORS headers are cached aggressively
 4. **Test with curl**: 
    ```bash
-   curl -H "Origin: https://mobile-project-8pme9g5o0-ravibharathis-projects-9c949989.vercel.app" \
+   curl -H "Origin: https://mobile-project-three.vercel.app" \
         https://mobile-project-fizd.onrender.com/api/products
    ```
 
