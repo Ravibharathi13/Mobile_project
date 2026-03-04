@@ -231,7 +231,7 @@ useEffect(() => {
   if (!id) return;
   
   // Connect to WebSocket
-  const socket = io('http://localhost:5000');
+  const socket = io('https://mobile-project-fizd.onrender.com');
   
   socket.on('stock_updated', (data) => {
     if (data.productId === id) {
@@ -323,17 +323,17 @@ catch (err) {
 ### Test in Browser Console:
 ```javascript
 // Test product fetch
-fetch('http://localhost:5000/api/products/123')
+fetch('https://mobile-project-fizd.onrender.com/api/products/123')
   .then(r => r.json())
   .then(data => console.log(data));
 
 // Test stock fetch
-fetch('http://localhost:5000/api/products/123/stock')
+fetch('https://mobile-project-fizd.onrender.com/api/products/123/stock')
   .then(r => r.json())
   .then(data => console.log(data));
 
 // Test reviews fetch
-fetch('http://localhost:5000/api/products/123/reviews')
+fetch('https://mobile-project-fizd.onrender.com/api/products/123/reviews')
   .then(r => r.json())
   .then(data => console.log(data));
 ```
@@ -341,16 +341,16 @@ fetch('http://localhost:5000/api/products/123/reviews')
 ### Test with cURL:
 ```bash
 # Get product
-curl http://localhost:5000/api/products/123
+curl https://mobile-project-fizd.onrender.com/api/products/123
 
 # Get stock
-curl http://localhost:5000/api/products/123/stock
+curl https://mobile-project-fizd.onrender.com/api/products/123/stock
 
 # Get reviews
-curl http://localhost:5000/api/products/123/reviews
+curl https://mobile-project-fizd.onrender.com/api/products/123/reviews
 
 # Create review (with auth)
-curl -X POST http://localhost:5000/api/products/123/reviews \
+curl -X POST https://mobile-project-fizd.onrender.com/api/products/123/reviews \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_TOKEN" \
   -d '{"rating":5,"title":"Great!","comment":"Amazing product"}'
@@ -444,7 +444,7 @@ npm install
 npm start
 
 # 2. Update API_BASE_URL in ProductDetail.jsx
-# Change: const API_BASE_URL = 'http://localhost:5000/api';
+# Change: const API_BASE_URL = 'https://mobile-project-fizd.onrender.com/api';
 
 # 3. Uncomment API calls in ProductDetail.jsx
 # Around lines 188, 205, 228

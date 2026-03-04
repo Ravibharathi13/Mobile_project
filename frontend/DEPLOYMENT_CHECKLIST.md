@@ -113,7 +113,7 @@
 
 ### API Base URL
 - [ ] Update API_BASE_URL if needed
-  - Current: `http://localhost:5000/api`
+  - Current: `https://mobile-project-fizd.onrender.com/api`
   - Required: Your backend URL
 
 ### Stock Threshold

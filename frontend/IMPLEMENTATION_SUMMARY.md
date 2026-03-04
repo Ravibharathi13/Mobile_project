@@ -278,7 +278,7 @@ Change when "Low Stock" appears:
 
 ### API Base URL
 ```javascript
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://mobile-project-fizd.onrender.com/api';
 ```
 
 ### Fallback Image

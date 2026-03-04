@@ -67,7 +67,7 @@ npm run dev
 
 ### **Check 4: Check if backend is running**
 1. Make sure your backend server is running on port 5000
-2. Test the health endpoint: `http://localhost:5000/api/chatbot/health`
+2. Test the health endpoint: `https://mobile-project-fizd.onrender.com/api/chatbot/health`
 
 ## 🎨 **What the Chatbot Looks Like**
 
@@ -106,7 +106,7 @@ npm run dev
 ### **Test 3: API Check**
 ```bash
 # Test if backend is working
-curl http://localhost:5000/api/chatbot/health
+curl https://mobile-project-fizd.onrender.com/api/chatbot/health
 ```
 
 ## 🚀 **If Still Not Working**
@@ -126,7 +126,7 @@ import ChatbotTest from './components/ChatbotTest';
 3. Check if there are import errors
 
 ### **Option 3: Manual Test**
-1. Go to `http://localhost:5000/api/chatbot/health`
+1. Go to `https://mobile-project-fizd.onrender.com/api/chatbot/health`
 2. You should see a JSON response
 3. If this works, the backend is fine
 

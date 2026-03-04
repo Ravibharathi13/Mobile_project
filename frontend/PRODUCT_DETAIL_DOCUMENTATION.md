@@ -236,7 +236,7 @@ onError={handleImageError}  // Fallback to placeholder
 
 ### API Base URL
 ```javascript
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://mobile-project-fizd.onrender.com/api';
 ```
 Update this to match your backend URL
 

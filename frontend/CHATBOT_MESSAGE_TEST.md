@@ -15,7 +15,7 @@ I've updated the SimpleChatbot component to handle message sending properly.
 ## 🧪 **Test the Chatbot Now:**
 
 ### **1. Refresh Your Browser:**
-- Go to `http://localhost:3000`
+- Go to `https://mobile-project-fizd.onrender.com`
 - Refresh the page (Ctrl+F5 or Cmd+Shift+R)
 
 ### **2. Open the Chatbot:**
@@ -69,7 +69,7 @@ node server.js
 ### **Check 2: Test API Directly**
 ```bash
 # Test the chatbot API
-curl -X POST http://localhost:5000/api/chatbot/chat \
+curl -X POST https://mobile-project-fizd.onrender.com/api/chatbot/chat \
   -H "Content-Type: application/json" \
   -d '{"message": "Hello"}'
 ```

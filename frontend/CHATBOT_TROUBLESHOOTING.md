@@ -64,7 +64,7 @@ You should now see **TWO** chatbot buttons:
 - If you see a blank page or error, the frontend isn't running
 
 ### **Test 2: Check if Backend is Running**
-- Go to `http://localhost:5000/api/chatbot/health`
+- Go to `https://mobile-project-fizd.onrender.com/api/chatbot/health`
 - You should see a JSON response
 - If you get an error, the backend isn't running
 
@@ -106,7 +106,7 @@ You should now see **TWO** chatbot buttons:
    - Do you see any blue buttons?
 
 4. **What's the URL you're visiting?**
-   - Should be `http://localhost:3000`
+   - Should be `https://mobile-project-fizd.onrender.com`
 
 ### **Quick Fix Commands:**
 ```bash
