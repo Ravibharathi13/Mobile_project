@@ -11,7 +11,7 @@ const RazorpayPayment = ({ amount, onSuccess, onError, buttonText = 'Pay Now' })
 
   const createOrder = async () => {
     try {
-      const { data } = await axios.post('http://localhost:5000/api/payments/create-order', {
+      const { data } = await axios.post('https://mobile-project-fizd.onrender.com/api/payments/create-order', {
         amount: amount,
         currency: 'INR',
       });
@@ -42,7 +42,7 @@ const RazorpayPayment = ({ amount, onSuccess, onError, buttonText = 'Pay Now' })
         handler: async function(response) {
           try {
             // Verify payment on your server
-            await axios.post('http://localhost:5000/api/payments/verify-payment', {
+            await axios.post('https://mobile-project-fizd.onrender.com/api/payments/verify-payment', {
               order_id: response.razorpay_order_id,
               payment_id: response.razorpay_payment_id,
               signature: response.razorpay_signature

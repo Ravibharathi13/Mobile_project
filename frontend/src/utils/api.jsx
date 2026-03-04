@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Create a single axios instance with base URL
 const API = axios.create({ 
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://mobile-project-fizd.onrender.com/api",
   timeout: 10000
 });
 
